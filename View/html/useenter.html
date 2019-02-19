@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登陆</title>
+    <link rel="stylesheet" href="/myblog/View/css/enter.css">
+    <link rel="stylesheet" href="/myblog/View/css/layer.css">
+    <script src="/myblog/View/js/jquery-3.2.1.js"></script>
+    <script src="/myblog/View/js/enter.js"></script>
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/bootstrap.min.css">
+    <script type="text/javascript"charset="UTF-8" src="/myblog/View/js/bootstrap.min.js"></script>
+</head>
+<body>
+<button class="butinto btn btn-primary" data-toggle="modal" data-target="#myModal">注册</button>
+<div class="content">
+    <div class="content-header">
+        <h2>欢迎访MissTF博客</h2>
+    </div>
+    <div class="content-main">
+        <div  class="spandiv" style="color: yellow;margin-left: 175px;">
+            <span class="spanerror" id="nocount">你还没输入账号！</span>
+            <span class="spanerror" id="contpsd">你输入的账号或密码不正确！</span>
+            <span class="spanerror" id="nopsd">你还没有输入密码！</span>
+            <span class="spanerror" id="novcode">你还没有输入验证码！</span>
+            <span class="spanerror" id="errorvcpde">验证码输入错误！</span>
+        </div>
+        <ul class="content-form">
+            <li class="magername">
+                <div class="input">
+                            <span class="icon">
+                                 <i>账号</i>
+                            </span>
+                    <input id="accounttext" name="account" type="text" class="text"  placeholder="账号" maxlength="30" onFocus="isfous()">
+                </div>
+            </li>
+            <li class="password">
+                <div class="input">
+                            <span class="icon">
+                                <i>密码</i>
+                            </span>
+                    <input id="passwordtext" name="password" type="password" class="text" placeholder="密码" maxlength="30" onfocus="isfous()">
+                </div>
+            </li>
+            <li >
+                <div class="input">
+                    <input id="mycode" type="text" style="float: left;height:43px;margin-right: 13px; color: #0A0A0A;" size="13" name="code" placeholder="验证码" onfocus="isfous()" onkeyup="if(this.value!=this.value.toUpperCase()) this.value=this.value.toUpperCase()">
+                    <img  style="float: right;height: 43px;width:150px;" id="code" class="prove" onclick="getcode()"/>
+                </div>
+            </li>
+            <li class="enter">
+                <input class="inputmanage" style="float: left;width: 131px;" type="button" value="登陆" onclick="enter(0)">
+                <input class="inputmanage" style="float: right;width: 131px;margin-top: -57px;" type="button" value="忘记密码" data-toggle="modal" data-target="#Modal">
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"data-backdrop="false"style="height: 500px">
+    <div class="modal-dialog">
+        <div class="modal-content" style="height:390px;width:500px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="empty()">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"style="text-align: center;">
+                    请输入内容
+                </h4>
+            </div>
+            <div class="modal-body" style="height:263px;">
+                <div style="color: red;text-align: center;height: 20px"><span id="intoempty" style="display: none;">亲！你少输入东西！</span></div>
+                <ul style="margin-top: -30px">
+                    <li>
+                        <div>
+                <span>
+                    昵称：
+                </span>
+                            <input id="name" onfocus="intotourisfous()"maxlength="10">
+                            <div style="color:red;margin-top: -20px;margin-left: 60%;height:0px"><span id="namespan" ></span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                <span>
+                    账号：
+                </span>
+                            <input id="usecount" onfocus="intotourisfous()"maxlength="10">
+                           <div style="color:red;margin-top: -20px;margin-left: 60%;height:0px"> <span id="contspan"></span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                <span>
+                    密码：
+                </span>
+                            <input id="usepwd" onfocus="intotourisfous()" maxlength="10">
+                           <div style="color:red;margin-top: -20px;margin-left: 60%;height:0px"> <span id="pwdspan"></span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                <span>
+                    密保：
+                </span>
+                            <input id="ques" onfocus="intotourisfous()" maxlength="10">
+                          <div style="color:red;margin-top: -20px;margin-left: 60%;height:0px"> <span id="quesspan"></span></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="empty()">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="sendcontent()">注册</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"data-backdrop="false"style="height: 500px;">
+    <div class="modal-dialog">
+        <div class="modal-content" style="height:365px;width: 500px">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="empty()">&times;</button>
+                <h4 class="modal-title" id="ModalLabel" style="text-align: center;">
+                    请输入内容
+                </h4>
+            </div>
+            <div class="modal-body" style="height:232px;overflow: hidden;">
+                <div style="color: red;height: 30px">
+                <span class="upsapn" id="upnocont">请输入账号!</span>
+                <span class="upsapn" id="upcontqueserror">账号或问腿不正确!</span>
+                <span class="upsapn" id="upnoques">请输入问题!</span>
+                <span class="upsapn" id="upnopsd">请输入新密码!</span>
+                <span class="upsapn" id="uprule">你输入的新密码不合法!</span>
+                <span class="upsapn" id="empty">亲！你少输入东西</span>
+                </div>
+                <ul style="text-align: center;margin-top: -45px;">
+                    <li style="margin-left: 12px;">
+                        <div>
+                <span>
+                    账号：
+                </span>
+                  <input id="usect" onfocus="upisfous()">
+                </div>
+                    </li>
+                    <li style="margin-left: 12px;">
+                        <div>
+                <span>
+                    问题：
+                </span>
+                    <input id="useques" onfocus="upisfous()">
+                </div>
+                    </li>
+                    <li>
+            <div>
+                <span>
+                    新密码：
+                </span>
+                <input id="usenewpwd" onfocus="upisfous()" maxlength="10">
+            </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="empty()">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="changeuse()">修改</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    getcode();
+    function getcode() {
+        $('#code').attr('src','/myblog/index.php/load/showcode?flag='+Math.random());
+    }
+</script>
+<script src="/myblog/View/js/layer.js"></script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>坏小哥的博客登陆</title>
+    <link rel="stylesheet" href="/myblog/View/css/enter.css">
+    <script src="/myblog/View/js/jquery-3.2.1.js"></script>
+    <script src="/myblog/View/js/enter.js"></script>
+</head>
+<body >
+    <div class="content">
+        <div class="content-header">
+            <h2>坏小哥的个人博客登陆</h2>
+        </div>
+        <div class="content-main">
+            <div style="color: yellow;margin-left: 175px;margin-bottom: 2%" class="spandiv">
+                <span class="spanerror" id="nocount">你还没输入账号！</span>
+                <span class="spanerror" id="contpsd">你输入的账号或密码不正确！</span>
+                <span class="spanerror" id="nopsd">你还没有输入密码！</span>
+                <span class="spanerror" id="novcode">你还没有输入验证码！</span>
+                <span class="spanerror" id="errorvcpde">验证码输入错误！</span>
+            </div>
+               <ul class="content-form">
+                    <li class="magername">
+                        <div class="input">
+                            <span class="icon">
+                                 <i>账号</i>
+                            </span>
+                        <input style="color: #0A0A0A" id="accounttext" name="account" type="text" class="text"  placeholder="账号" maxlength="30" onFocus="isfous()">
+                        </div>
+                    </li>
+                    <li class="password">
+                        <div class="input">
+                            <span class="icon">
+                                <i>密码</i>
+                            </span>
+                            <input style="color:#000;" id="passwordtext" name="password" type="password" class="text" placeholder="密码" maxlength="30" onfocus="isfous()">
+                        </div>
+                    </li>
+                    <li >
+                        <div class="input">
+                            <input   id="mycode" type="text" style="height: 40px;size:13px;color: #0A0A0A" name="code" placeholder="验证码"onfocus="isfous()" onkeyup="if(this.value!=this.value.toUpperCase()) this.value=this.value.toUpperCase()">
+                            <img  style="float: right;margin-top: 3px;margin-right: 4px" id="code" class="prove" onclick="getcode()"/>
+                        </div>
+                    </li>
+                    <li class="enter">
+                        <input class="inputmanage" style="float: left;width: 131px;" type="button" value="去管理" onclick="enter(2)">
+                        <input class="inputmanage" style="float: right;width: 131px;margin-top: -57px" type="button" value="去前台" onclick="enter(1)">
+                    </li>
+                </ul>
+        </div>
+    </div>
+</body>
+<script>
+    getcode();
+    function getcode() {
+        $('#code').attr('src','/myblog/index.php/Load/showcode?flag='+Math.random());
+    }
+</script>
+</html>

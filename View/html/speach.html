@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8">
+<title>梦幻空间@闲言碎语</title>
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/recheader.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/yaoli.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/manage.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/reartical.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/speach.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/layer.css">
+<script src="/myblog/View/js/jquery-3.2.1.js"></script>
+<script type="text/javascript"charset="UTF-8" src="/myblog/View/js/jquery.min.js"></script>
+<script type="text/javascript"charset="UTF-8" src="/myblog/View/js/artical.js"></script>
+<script  src="/myblog/View/js/yaoli.js"></script>
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/bootstrap.min.css">
+<script type="text/javascript"charset="UTF-8" src="/myblog/View/js/bootstrap.min.js"></script>
+<script type="text/javascript"charset="UTF-8" src="/myblog/View/js/speach.js"></script>
+</head>
+<body style="background-color: #0A0A0A;font-family: 幼圆;">
+<div class="big">
+    <header>
+        <div class="header-wrap">
+            <div class="logo">
+                <img src="/myblog/View/images/psb2.jpg" alt="我的头像" style="width: 130px;height: 130px;">
+            </div>
+            <div class="header-text-box " style="margin-top: 13px">
+                <span style="font-size: 20px;color: #0A0A0A"><?php
+                      echo  $text[0]['dary_text'];
+                      ?></span>
+            </div>
+            <div class="logo-pic">
+                <?php if(!isset($name)){ echo '<a href="/myblog/index.php/Artical/mainpage">'; }?><img src="/myblog/View/images/logo-pic-bg.jpg" alt="" style="width: 129px;height: 115px;"></a>
+            </div>
+        </div>
+        <nav id="nav" class="nav-wrap">
+            <ul class="clearfix">
+                <li><a href="/myblog/index.php/Main/yaolipage">首页</a></li>
+                <li><a href="/myblog/index.php/Artical/selectart">美文欣赏</a></li>
+                <li><a href="/myblog/index.php/Images/mypic">相册</a></li>
+                <li id="mynav"><a href="/myblog/index.php/Speachs/speach">留言板</a></li>
+            </ul>
+        </nav>
+    </header>
+    <?php
+            if(isset($name)){
+              echo '<span class="pname">用户名：'.$name[0].'</span>';
+    }
+    ?>
+    <a class="apush" href="/myblog/index.php/load/sugnOut">退出</a>
+    <div class="preserve">
+        <div class="wrap-box">
+            <div class="cube">
+                <div class="out-front"></div>
+                <div class="out-back"></div>
+                <div class="out-left"></div>
+                <div class="out-right"></div>
+                <div class="out-top"></div>
+                <div class="out-bottom"></div>
+                <span class="in-front"></span>
+                <span class="in-back"></span>
+                <span class="in-left"></span>
+                <span class="in-right"></span>
+                <span class="in-top"></span>
+                <span class="in-bottom"></span>
+            </div>
+        </div>
+    </div>
+    <div class="font"style="height: 200px">
+        <a class="giveme" style=" text-decoration:none;" data-toggle="modal" data-target="#onemodal">给我点东西？</a>
+        <span style="font-family: 'Eras Light ITC';font-size: 66px;margin-left: -248px;color: #fff">
+            致——终将逝去的"寄语"！
+            <p style="font-family: 幼圆;font-size: 40px;margin-left: 540px;margin-top: 30px;">
+                神马都是浮云......不是吗？
+            </p>
+        </span>
+    </div>
+    <div class="modal fade" id="onemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false" style="color:#000;">
+        <div class="modal-dialog" style="width: 510px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="empty()">&times;</button>
+                    <h4 class="modal-title" id="ModalLabel" style="text-align: center;">其实你不懂我的心</h4>
+                </div>
+                <div class="modal-body">
+                    <p  style="margin-top: 20px;margin-left: 10px">我的留言：</p>
+                    <textarea class="incont" style="display: block" maxlength="200px" id="onetextid"></textarea>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default closes" data-dismiss="modal" onclick="empty()">关闭窗口</button>
+                        <button type="button" class="btn btn-primary relpy" onclick="message()">发表留言</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom: 5%">
+    <div class="speach"style="color: #fff;">
+        <p class="title"style="font-size: 44px">一起来吐槽我吧！哈哈哈哈哈哈哈哈哈哈</p>
+        <ul style="margin-top: -32px;">
+            <?php
+            for($i=0;$i<count($text2);$i++){
+                echo '<li class="comment-li">
+                            <div class="md-comment">
+                                <div >
+                                    <a>'.$text2[$i][2].'留言:</a>
+                                    <p style="word-wrap: break-word;max-width: 800px;">
+                                         '.$text2[$i][3].'
+                                       </p>
+                                    <div class="comment-up" style="padding: 2px 2px 25px 2px;" >
+                                        <p style="margin-top:10px">'.$text2[$i][4].'</p>
+                                        <a class="upcolor" style="margin-top: 12px"  onclick="reply('.$text2[$i][1].','.$text2[$i][0].')" id="'.$i.'">回复</a>
+                                    </div>
+                                </div>
+                            </div>';
+                       $count=(count($text2[$i])-1);
+                     for($j=0;$j<count($text2[$i][$count]);$j++){
+                         echo '<div class="down-comment">
+                                    <ol>
+                                        <li class="comment-item">
+                                            <div class="comment-bd">
+                                                <div class="comment-content">
+                                                    <a >'.$text2[$i][$count][$j][1].'</a>
+                                                    <span>
+                                                        <span>回复</span>
+                                                        <a>'.$text2[$i][$count][$j][2].'</a>
+                                                    </span>
+                                                    :
+                                                    <p style="word-wrap: break-word;max-width: 800px;">'.$text2[$i][$count][$j][3].'</p>
+                                                    <div comment-op style="padding: 2px 2px 25px 2px;">
+                                                        <p style="margin-top:10px">'.$text2[$i][$count][$j][5].'</p>
+                                                        <a class="downcolor"; id="'.$j.'";style="margin-top: 12px" rel="'.$text2[$i][$count][$j][4].'" onclick="reply('.$text2[$i][$count][$j][0].','.$text2[$i][0].')" >回复</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                            </div>';
+                         }
+           echo '</li>';
+                    } ?>
+        </ul>
+    </div>
+        <div class="showpaegs" style="text-align: center;height: 65px"><p><?php echo $showpage; ?></p></div>
+    </div>
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog"style="width: 510px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="empty()">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel" style="text-align: center;">其实你不懂我的心</h4>
+                </div>
+                <div class="modal-body">
+                    <p  style="margin-top: 20px">我的回复：</p>
+                    <textarea class="incont" style="display: block" maxlength="200px" id="textid"></textarea>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default closes" data-dismiss="modal" onclick="empty()">关闭窗口</button>
+                        <button type="button" class="btn btn-primary relpy" onclick="send(this)">回复</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer class="footer-wraps" style="position: fixed;left: 37%;top: 93%;bottom: 5%">
+        <p style=" font-size: 20px;color: yellow;">
+            <span>Design by：坏小哥</span>
+            <span>备案号：<strong>商丘123456789</strong></span>
+        </p>
+    </footer>
+
+</div>
+<script>
+    $.wrapBox();
+</script>
+<script>mynav()</script>
+<script type="text/javascript"charset="UTF-8" src="/myblog/View/js/layer.js"></script>
+</body>
+</html>

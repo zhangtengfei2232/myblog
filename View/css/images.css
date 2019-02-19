@@ -1,0 +1,32 @@
+.imgpage{
+   background-color: #0A0A0A;
+    background-size:100% 100%;
+    background-attachment:fixed;
+}
+.imagefind{
+    float: left;
+    margin-top: 44px;
+    margin-left: 232px;
+}
+@charset "utf-8";
+body { font:12px/1.5 Arial; color:#666; background:#EDEDED;}
+ul,li{ list-style:none;}
+a{ color:#666; text-decoration:none;}
+a:hover{ text-decoration:none; color:#000;}
+img{border:0 none;}
+
+#waterfall{
+    width: 1300px;
+    margin-top: -6px;
+    margin-left: 144px;
+    float: left;
+}
+#waterfall img{
+    width:203px;
+}
+#waterfall .cell{
+    padding:1px 0px 5px 0px; width:208px;border:1px solid #E3E3E3; background:#fff; margin-top:20px;box-shadow: 0px 2px 3px 1px #ccc;
+}
+#waterfall .cell{
+    box-shadow: 0px 2px 3px 1px #999;
+}

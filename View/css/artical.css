@@ -1,0 +1,18 @@
+.bodyart{
+    background: url("/myblog/View/images/8.jpg");
+    background-size:100% 100%;
+    background-attachment:fixed;
+}
+.text p{
+    text-indent:2em;
+}
+.text{
+    margin: 0 auto;
+    border: 1px solid #F00;
+    height: auto;
+    width: auto;
+    background-color: #fff;
+    max-width: 1000px;
+    color: #0A0A0A;
+    font-size: 18px;
+}

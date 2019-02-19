@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>姚笠儿相片</title>
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/zzsc.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/chartist-custom.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/demo.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/manage.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/layer.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/imgstyle.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/zoom.css">
+    <script src="/myblog/View/js/jquery-3.2.1.js"></script>
+    <script src="/myblog/View/js/layer.js"></script>
+    <script src="/myblog/View/js/yaoli.js"></script>
+    <script src="/myblog/View/js/bootstrap.min.js"></script>
+    <script src="/myblog/View/js/jquery.slimscroll.min.js"></script>
+    <script src="/myblog/View/js/jquery.easypiechart.js"></script>
+    <script src="/myblog/View/js/chartist.min.js"></script>
+    <script src="/myblog/View/js/klorofil-common.js"></script>
+    <script src="/myblog/View/js/waterfall.js"></script>
+    <script src="/myblog/View/js/zoom.js"></script>
+    <script src="/myblog/View/js/artical.js"></script>
+    <script src="/myblog/View/js/uploadimages.js"></script>
+</head>
+<body style="background-color: #000;">
+<script> var judgepic=true;</script>
+<div id="wrapper" style="overflow: hidden;margin: auto">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="brand">
+            <a href="index.html"><img src="" alt="Klorofil Logo" class="img-responsive logo"></a>
+        </div>
+        <div class="container-fluid">
+            <div class="navbar-btn" style="margin-top: -10px">
+                <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+                <span style="margin-left: 145px;font-size: 41px;letter-spacing:100px;">后台管理</span>
+            </div>
+            <div></div>
+            <div class="navbar-btn navbar-btn-right">
+                <a class="btn btn-success update-pro" href="/myblog/index.php/Load/sugnOut" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>退出管理</span></a>
+            </div>
+            <div id="navbar-menu">
+                <ul class="nav navbar-nav navbar-right" style="margin-right:80px">
+                    <li>
+                        <a href="/myblog/index.php/Main/yaolipage" class="dropdown-toggle"><i class="lnr lnr-question-circle"></i> <span>首页</span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/myblog/index.php/Artical/selectart" class="dropdown-toggle"><i class="lnr lnr-question-circle"></i><span>美文欣赏</span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/myblog/index.php/Images/mypic" class="dropdown-toggle"><i class="lnr lnr-question-circle"></i><span>相册</span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/myblog/index.php/Speachs/speach" class="dropdown-toggle"><i class="lnr lnr-question-circle"></i><span>留言</span> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="sidebar-nav" class="sidebar" style="margin-top: 3%">
+        <div class="sidebar-scroll">
+            <nav>
+                <ul class="nav">
+                    <li  style="line-height: 80px"><a href="/myblog/index.php/Artical/mainpage" class=""><i class="lnr lnr-home"></i> <span style="margin-left: 1%">文章管理</span></a></li>
+                    <li style="line-height: 80px">
+                        <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span style="margin-top: 1%">每日一言</span><i class="icon-submenu lnr lnr-chevron-left" style="margin-top: 30px;"></i></a>
+                        <div id="subPages" class="collapse ">
+                            <ul class="nav">
+                                <li><a href="/myblog/index.php/Dary/semydary?id=0" class="">我的名言</a></li>
+                                <li><a href="/myblog/index.php/Dary/semydary?id=1" class="">作家名言</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li  id="color" style="line-height: 80px"><a href="/myblog/index.php/Images/realimg" class=""></i><i style="margin: 0" class="lnr lnr-file-empty"></i><span style="margin-left: 7%">相册管理</span></a></li>
+                    <li style="line-height: 80px"><a href="/myblog/index.php/Speachs/respeach" class=""><i class="lnr lnr-cog"></i> <span style="margin-left: 2%">留言管理</span></a></li>
+                    <li style="line-height: 80px"><a href="/myblog/index.php/Main/information" class=""><i class="lnr lnr-alarm"></i> <span style="margin-left: 1%">信息管理</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div style="overflow: hidden;width: 322px;float: left;margin-top: 9%;margin-left: 26%;">
+        <span style="font-size: 22px;width: 127px;color: #fff;cursor: pointer;" onclick="reshowdate()">时间查询</span>
+        <select style="height: 31px;width:100px;display: none"onchange="reselectmoth()" id="dateinput" value="<?php echo $date[0][0]; ?>" rel="<?php echo $dary[0]; ?>">
+            <?php
+              for($i=0;$i<count($date);$i++){
+              if(isset($year)){
+                  if($date[$i][0]==$year[0]){
+                  echo '<option value='.$date[$i][0].' selected>'.$date[$i][0].'</option>';
+            }else{
+            echo '<option value='.$date[$i][0].'>'.$date[$i][0].'</option>';
+            }
+            }else{
+            echo '<option value='.$date[$i][0].'>'.$date[$i][0].'</option>';
+            }
+            }
+            ?>
+        </select>
+        <select style="height: 31px;width: 100px;margin-left: 5%;display: none" onchange="reshowdate()" id="datemothinput"rel="<?php echo $dary[0]; ?>">
+            <?php
+              for($i=0;$i<count($moth);$i++){
+              if(isset($almoth)){
+                  if($moth[$i][0]==$almoth[0]){
+                  echo '<option value='.$moth[$i][0].' selected>'.$moth[$i][0].'</option>';
+            }else{
+            echo '<option value='.$moth[$i][0].'>'.$moth[$i][0].'</option>';
+            }
+            }else{
+            echo '<option value='.$moth[$i][0].'>'.$moth[$i][0].'</option>';
+            }
+            }
+            ?>
+        </select>
+    </div>
+    <div class="reimagefind" style="overflow: hidden;float: right;width: 319px;overflow: hidden;height: 50px;margin-top: 9%;margin-right: 9%;">
+        <button class=" btn btn-primary" style="width:130px;height:40px" onclick="showimgmodel()">上传图片</button>
+        <button  class=" btn btn-primary" onclick="deletephoto()" style="width:130px;float:right;height:40px">删除照片</button>
+    </div>
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog"style="width: 510px">
+            <div class="modal-content" style="width: 800px">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="emptyimg()">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel" style="text-align: center;">请选择上传的图片</h4>
+                </div>
+                <div class="modal-body" style="min-height: 500px;">
+                    <form id="uploadForm" enctype="multipart/form-data">
+                    <div>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
+                        <input id="file-Portrait1" class="btn btn-primary fileinput-button" type="file" name="myfile"style="color: #ACCD3C;display:inline" multiple>
+                    </div>
+                    </form>
+                    <div class="pics" id="pics" style="width: 750px;min-height: 350px;margin-top: 5%;border:2px solid #000;">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default closes" data-dismiss="modal" onclick="emptyimg()">关闭窗口</button>
+                        <button type="button" class="btn btn-primary relpy" onclick="uploadimg(this)">上传</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="waterfall" class="etalage_wrap" rel="" style=" width: 1000px;margin-bottom:10%;float: right;margin-top:5%;height: auto;margin-left: 7%;margin-right: 8%">
+        <?php
+       for($i=0;$i<count($text);$i++){
+       echo '<div class="cell etalage_thumb_image" rel='.$text[$i]['ima_id'].' onmouseover="show(this)"  onmouseout="hiddens(this)">
+            <img data-action="zoom" src='.$text[$i]['ima_road'].'>
+            <input type="checkbox" class="input" rel="'.$text[$i]['ima_id'].'" style="position:absolute;width: 30px;height:17px;top:0px;left:190px;opacity: 0;">
+             </div>';
+    }
+       ?>
+     </div>
+<div class="footer-wrap"style="position: fixed;color: yellow;font-size: 20px;top: 95%;left: 38%;height: 50px">
+    <p>
+        <span>Design by：坏小哥</span>
+        <span>备案号：<strong>商丘123456789</strong></span>
+    </p>
+</div>
+<div style="height: 500px">
+
+</div>
+    <script>
+        var opt={
+            getResource:function(index,render){//index为已加载次数,render为渲染接口函数,接受一个dom集合或jquery对象作为参数。通过ajax等异步方法得到的数据可以传入该接口进行渲染，如 render(elem)
+                var html1='';
+                var albumid=$('#dateinput').attr('rel');
+                var judgeshowimg=$('#waterfall').attr('rel');
+                if (judgepic) {
+                    if (index > 1) {
+                        if(judgeshowimg==0) {
+                            $.ajax({
+                                type: 'post',
+                                url: '/myblog/index.php/Images/selectimg',
+                                data: {page:index-1,albumid:albumid},
+                                dataType: 'json',
+                                success: function (data) {
+                                    if (data == null) return;
+                                    for (var i = 0; i < data.length; i++) {
+                                        var src = data[i].ima_road;
+                                        var id = data[i].ima_id;
+                                        html1 += '<div class="cell" rel="' + id + '";  onmouseover="show(this)"  onmouseout="hiddens(this)"><img data-action="zoom" src="' + src + '" />' +
+                                            '<input type="checkbox" class="input checked" id="' + data[i].ima_id + '"  style="position:absolute;width: 30px;top:0px;left:200px;" rel="' + data[i].ima_id + '"></div>';
+                                    }
+                                    render(html1);
+                                }
+                            })
+                        }
+                        else if(judgeshowimg!=0){
+                            var dateinput=document.getElementById('dateinput').value;
+                            $.ajax({
+                                type: 'post',
+                                url: '/myblog/index.php/Images/selectdateimg',
+                                data: {page:index-1,albumid:albumid,dateinput:dateinput},
+                                dataType: 'json',
+                                success: function (data) {
+                                    if (data == null) return;
+                                    for (var i = 0; i < data.length; i++) {
+                                        var src = data[i].ima_road;
+                                        var id = data[i].ima_id;
+                                        html1 += '<div class="cell" rel="' + id + '";  onmouseover="show(this)"  onmouseout="hiddens(this)"><img data-action="zoom" src="' + src + '" />' +
+                                            '<input type="checkbox" class="input checked" id="' + data[i].ima_id + '"  style="position:absolute;width: 30px;top:0px;left:200px;" rel="' + data[i].ima_id + '"></div>';
+                                    }
+                                    render(html1);
+                                }
+                            })
+                        }
+                    }
+                }
+            },
+            auto_imgHeight:true,
+            insert_type:1
+        }
+        $('#waterfall').waterfall(opt);
+    </script>
+<script>
+    function show(obj) {
+        $(obj).children('input').css('opacity',1);
+    }
+    function hiddens(obj) {
+        if($(obj).children('input').is(':checked')){
+            $(obj).children('input').css('opacity',1)
+            return;
+        }else {
+            $(obj).children('input').css('opacity',0)
+        }
+    }
+    changenavco()
+    showwater();
+</script>
+<?php
+  if($date[(count($date)-1)]!=0){
+      echo '<script>showinput()</script>';
+}
+if (isset($year)){
+    echo '<script>showinput()</script>';
+}
+    ?>
+</div>
+</body>
+</html>

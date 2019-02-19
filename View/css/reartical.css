@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.428;
+    color: #333;
+    background-color: #fff;
+}
+a {
+    cursor:pointer;
+}
+#wrapper {
+    width: 100%;
+    background: #202020;
+}
+.adcenter {
+    width: 960px;
+    height: 90px;
+    margin: 0 auto;
+}
+#page-wrapper {
+    margin: 0 0 0 260px;
+    padding: 15px 30px;
+    min-height: 1200px;
+    background: #F3F3F3;
+}
+#page-inner {
+    width: 100%;
+    margin: 10px 20px 10px 0px;
+    background-color: #fff!important;
+    padding: 10px;
+    min-height: 1200px;
+}
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.form-control {
+    width:274px;
+    padding:0;
+}
+#editor{
+
+    margin-left: 15px;
+    margin-top: 200px;
+}#deliver{
+     margin-right: -100px;
+     margin-top:5px;
+     width: 278px;
+     float: right;
+ }
+.deliver2{
+    margin-right: -100px;
+    margin-top: 5px;
+    width: 278px;
+    float: right;
+ }
+ .select{
+     float: left;
+     margin-top: 19px;
+     width: 80px;
+     height: 35px;
+ }
+ .form-group{
+     margin-top: 54px;
+ }
+ .footer-wrap{
+     font-size: 18px;
+     float: left;
+     margin-left: 583px;
+     margin-top: 100px;
+ }
+.reimagefind{
+    float: right;
+    margin-top: 44px;
+    margin-right: 175px;
+}
+

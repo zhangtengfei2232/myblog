@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8">
+<title>梦幻空间@相册</title>
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/recheader.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/yaoli.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/manage.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/reartical.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/images.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/zoom.css">
+<script src="/myblog/View/js/jquery-3.1.1.js"></script>
+<script src="/myblog/View/js/bootstrap.min.js"></script>
+<script src="/myblog/View/js/zoom.js"></script>
+<script src="/myblog/View/js/yaoli.js"></script>
+<script type="text/javascript"charset="UTF-8" src="/myblog/View/js/ueditor.config.js"></script>
+<script type="text/javascript"charset="UTF-8" src="/myblog/View/js/ueditor.all.min.js"></script>
+<script type="text/javascript"charset="UTF-8" src="/myblog/View/js/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript"charset="UTF-8" src="/myblog/View/js/artical.js"></script>
+</head>
+<script> var judgepic=true;</script>
+<body class="imgpage">
+<div class="big" id="judgeshowimg" rel="<?php echo $dary[(count($dary)-1)]; ?>">
+    <header>
+        <div class="header-wrap">
+            <div class="logo">
+                <img src="/myblog/View/images/psb2.jpg" alt="我的头像" style="width: 130px;height: 130px;">
+            </div>
+            <div class="header-text-box">
+                <p style="font-size: 20px;color: #000;"><?php
+                      echo  $dary[0]['dary_text'];
+                      ?>
+                     </p>
+            </div>
+            <div class="logo-pic">
+                <?php if(!isset($name)){ echo '<a href="/myblog/index.php/artical/mainpage">'; }?><img src="/myblog/View/images/logo-pic-bg.jpg" alt="" style="width: 129px;height: 115px;"></a>
+            </div>
+        </div>
+        <nav id="nav" class="nav-wrap">
+            <ul class="clearfix">
+                <li><a href="/myblog/index.php/Main/yaolipage">首页</a></li>
+                <li><a href="/myblog/index.php/Artical/selectart">美文欣赏</a></li>
+                <li id="mynav"><a href="/myblog/index.php/Images/mypic">相册</a></li>
+                <li><a href="/myblog/index.php/Speachs/speach">留言板</a></li>
+            </ul>
+        </nav>
+    </header>
+    <?php
+            if(isset($name)){
+              echo '<span class="pname" style="font-size=16px">用户名：'.$name[0].'</span>';
+    }
+    ?>
+    <a class="apush" href="/myblog/index.php/load/sugnOut">退出</a>
+    <div class="preserve" style="margin-top: -23px;margin: 0;">
+        <div class="wrap-box">
+            <div class="cube">
+                <div class="out-front"></div>
+                <div class="out-back"></div>
+                <div class="out-left"></div>
+                <div class="out-right"></div>
+                <div class="out-top"></div>
+                <div class="out-bottom"></div>
+                <span class="in-front"></span>
+                <span class="in-back"></span>
+                <span class="in-left"></span>
+                <span class="in-right"></span>
+                <span class="in-top"></span>
+                <span class="in-bottom"></span>
+            </div>
+        </div>
+    </div>
+    <div class="imagefind" style="width: 326px;">
+        <span style="font-size: 22px;width: 97px;color: #fff;cursor: pointer;float:left;"  onclick="showimage()">时间查询</span>
+        <select style="height: 31px;width: 100px;display: none"onchange="selectmoth()" id="dateinput" value="<?php echo $date[0][0]; ?>" rel="<?php echo $dary[1]; ?>">
+            <?php
+              for($i=0;$i<count($date);$i++){
+              if(isset($year)){
+                  if($date[$i][0]==$year[0]){
+                  echo '<option value='.$date[$i][0].' selected>'.$date[$i][0].'</option>';
+                  }else{
+            echo '<option value='.$date[$i][0].'>'.$date[$i][0].'</option>';
+            }
+              }else{
+            echo '<option value='.$date[$i][0].'>'.$date[$i][0].'</option>';
+            }
+            }
+            ?>
+        </select>
+        <select style="height: 31px;width: 100px;margin-left: 5%;display: none" onchange="showimage()" id="datemothinput"rel="<?php echo $dary[1]; ?>">
+            <?php
+              for($i=0;$i<count($moth);$i++){
+              if(isset($almoth)){
+                  if($moth[$i][0]==$almoth[0]){
+                  echo '<option value='.$moth[$i][0].' selected>'.$moth[$i][0].'</option>';
+              }else{
+            echo '<option value='.$moth[$i][0].'>'.$moth[$i][0].'</option>';
+            }
+            }else{
+            echo '<option value='.$moth[$i][0].'>'.$moth[$i][0].'</option>';
+            }
+            }
+            ?>
+        </select>
+    </div>
+<script>
+    $.wrapBox();
+</script>
+    <div class="xm" id="xm">
+        <ul>
+            <li name="pic" class="sheel1"><img src="<?php echo $images[0][0]; ?>" ></li>
+            <li name="pic" class="sheel2"><img src="<?php echo $images[1][0]; ?>"></li>
+            <li name="pic" class="sheel3"><img src="<?php echo $images[2][0]; ?>"></li>
+            <li name="pic" class="sheel4"><img src="<?php echo $images[3][0]; ?>"></li>
+            <li name="pic" class="sheel5"><img src="<?php echo $images[4][0]; ?>"></li>
+        </ul>
+        <button  class="mm-next" id="mm-next">
+            <img src="/myblog/View/images/click.png">
+        </button>
+        <button  class="mm-last" id="mm-last">
+            <img src="/myblog/View/images/click.png">
+        </button>
+    </div>
+    <div id="waterfall" rel="<?php echo $dary[1]; ?>">
+        <?php
+        if(isset($text)){
+          for($i=0;$i<count($text);$i++){
+            echo '<div class="cell"><img data-action="zoom" src='.$text[$i]['ima_road'].'></div>';
+         }
+    }
+    ?>
+    </div>
+    <script>
+        var opt={
+            getResource:function(index,render) {//index为已加载次数,render为渲染接口函数,接受一个dom集合或jquery对象作为参数。通过ajax等异步方法得到的数据可以传入该接口进行渲染，如 render(elem)
+                var html1 = '';
+                var albumid=$('#waterfall').attr('rel');
+                var judgeshowimg=$('#judgeshowimg').attr('rel');
+                var  a=0;
+                if(a>0){
+                   return;
+                }
+                if (judgepic){
+                    if(index>1){
+                        if(judgeshowimg==0){
+                            $.ajax({
+                                type: 'GET',
+                                url: '/myblog/index.php/Images/selectimg',
+                                data: {page:index-1,albumid:albumid},
+                                dataType: 'json',
+                                success: function (data) {
+                                    if(data==null){
+                                        judgepic=false;
+                                        return;
+                                    }
+                                    for (var i = 0; i < data.length; i++) {
+                                        var src = data[i].ima_road;
+                                        html1 += '<div class="cell"><img data-action="zoom" src="' + src + '" /></div>';
+                                    }
+                                    render(html1);
+                                }
+                            })
+                        }else if(judgeshowimg!=0){
+                            var dateinput=document.getElementById('dateinput').value;
+                            $.ajax({
+                                type: 'GET',
+                                url: '/myblog/index.php/Images/selectdateimg',
+                                data: {page:index-1,albumid:albumid,dateinput:dateinput},
+                                dataType: 'json',
+                                success: function (data) {
+                                    if (data == null) {
+                                        judgepic = false;
+                                        return;
+                                    }
+                                    for (var i = 0; i < data.length; i++) {
+                                        var src = data[i].ima_road;
+                                        html1 += '<div class="cell"><img data-action="zoom" src="' + src + '" /></div>';
+                                    }
+                                    render(html1);
+                                }
+                            })
+                        }
+                    }
+                }
+            },
+            auto_imgHeight:true,
+            insert_type:1
+        }
+        $('#waterfall').waterfall(opt);
+    </script>
+<?php
+  if($dary[(count($dary)-1)]!=0){
+      echo '<script>showinput()</script>';
+  }
+  ?>
+<script src="/myblog/View/js/images.js"></script>
+<footer class="footer-wrap">
+    <p>
+        <span>Design by：坏小哥</span>
+        <span>备案号：<strong>商丘123456789</strong></span>
+    </p>
+</footer>
+</div>
+<script>
+    mynav()
+    showwater ()
+</script>
+</body>
+</html>

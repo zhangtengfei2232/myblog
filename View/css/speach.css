@@ -1,0 +1,59 @@
+.speach{
+    box-shadow:0 0 10px #fff;
+    margin: 0 auto;
+    width: 60%;
+}
+.down-comment{
+    margin-left: 75px;
+}
+.comment-item{
+}
+.comment-li{
+     padding-top: 35px;
+     border-color: #fff;
+     border-width: 2px 0 0;
+     border-style: dashed;
+     margin-top: 30px;
+}
+.commentup-li{
+    margin-top: 40px;
+}
+.font{
+    text-align: center;
+    margin-top: 52px;
+}
+.title{
+    font-family: 隶书;
+    color: #ff1493;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+.upcolor{
+    color: #ACCD3C;
+}
+.downcolor{
+    color: #00ff00;
+}
+.giveme{
+    margin-top:132px;
+    float: left;
+    margin-left:174px;
+    font-size:20px;
+    color: #dd0000;
+}
+#modal{
+    color: #0A0A0A;
+}
+.incont{
+    margin-left: 10px;
+    display: block;
+    margin-top: 20px;
+    width: 335px;
+    min-height: 100px;
+}
+
+.col-sm-10{
+    float: right;
+    margin-top: -23px;
+}

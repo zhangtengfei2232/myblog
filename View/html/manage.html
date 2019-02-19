@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>梦幻管理</title>
+        <link rel="stylesheet" type="text/css" href="/myblog/View/css/recheader.css">
+        <link rel="stylesheet" type="text/css" href="/myblog/View/css/yaoli.css">
+        <link rel="stylesheet" type="text/css" href="/myblog/View/css/manage.css">
+        <link rel="stylesheet" type="text/css" href="/myblog/View/css/bootstrap.min.css">
+        <script src="/myblog/View/js/jquery-3.2.1.js"></script>
+        <script type="text/javascript"charset="UTF-8" src="/myblog/View/js/bootstrap.min.js"></script>
+        <script src="/myblog/View/js/artical.js"></script>
+</head>
+<body style="background: url('/myblog/View/images/11.jpg');background-size:100% 100%;background-attachment:fixed;">
+<div class="big">
+    <header>
+        <div class="header-wrap">
+            <div class="logo">
+                <img src="/myblog/View/images/psb2.jpg" alt="我的头像" style="width: 130px;height: 130px;">
+            </div>
+            <div class="header-text-box">
+                <p><?php
+                      echo  $text[0][0]['dary_text'];
+                      ?></p>
+            </div>
+            <div class="logo-pic">
+                <a href="/myblog/index.php/artical/mainpage"><img src="/myblog/View/images/logo-pic-bg.jpg" alt="" style="width: 129px;height: 115px;"></a>
+            </div>
+        </div>
+
+        <nav id="nav" class="nav-wrap">
+            <ul class="clearfix">
+                <li><a href="/myblog/index.php/artical/yaolipage">首页</a></li>
+                <li><a href="/myblog/index.php/artical/selectart">美文欣赏</a></li>
+                <li><a href="/myblog/index.php/artical/mypic">相册</a></li>
+                <li><a href="/myblog/index.php/speachs/speach">留言板</a></li>
+              </ul>
+        </nav>
+        <a class="apush" href="/myblog/index.php/load/sugnOut">退出</a>
+    </header>
+    <div class="input">
+        <form id="Form" method="POST" action="/myblog/index.php/artical/seartt" onsubmit="">
+            <input id="reaserch" name="reserch" type="text" class="text"  placeholder="请输入搜索内容" maxlength="30">
+            <button type="submit" class="serch btn btn-primary" style="width: 60px" id="find" >Go!Go!</button>
+        </form>
+    </div>
+    <nav class="navbar-side" role="navigation" style="margin-left: -78px;margin-top: 106px;">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li>
+                    <a href="/myblog/index.php/artical/mainpage" id="yaoliartical">
+                        <i class="fa fa-dashboard fa-3x">
+                            <img src="/myblog/View/images/people.jpg" alt="">
+                        </i>
+                       <p class="ptitle">小哥@文章</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/myblog/index.php/artical/redary">
+                        <i class="fa fa-desktop fa-3x">
+                            <img src="/myblog/View/images/waibu1.gif" alt="">
+                        </i>
+                        <p class="ptitle">每日一言</p>
+                    </a>
+                </li>
+                <li id="article-link">
+                    <a href="/myblog/index.php/speachs/respeach">
+                        <i class="fa fa-qrcode fa-3x">
+                            <img src="/myblog/View/images/waibu2.gif" alt="">
+                        </i>
+                        <p class="ptitle">你我及他</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/myblog/index.php/artical/manallpic">
+                        <i class="fa fa-table fa-3x">
+                            <img src="/myblog/View/images/waibu3.gif" alt="">
+                        </i>
+                        <p class="ptitle">@小清新</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/myblog/index.php/artical/information">
+                        <i class="fa fa-edit fa-3x">
+                            <img src="/myblog/View/images/waibu4.gif" alt="">
+                        </i>
+                        <p class="ptitle">* 坏小哥*</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="artical" >
+    <table class="table table-bordered" style="width:80%;color:#000;background-color:#fff;border=2;">
+    <caption class="caption" style="margin-left: 240px"><h1>坏小哥的作品</h1> <button type="submit" class="add btn btn-primary" onclick="add()" >添加文章</button></caption>
+        <tr>
+        <th height="55px">题目</th>
+        <th height="55px">作品类型</th>
+        <th height="55px">上传日期</th>
+        <th height="55px" width="100px">编辑</th>
+        </tr>
+    <?php
+         if($text[1]==0){
+         echo '<script>alert("无数据")</script>';
+    }
+        else{
+            for($i=0;$i<count($text[1]);$i++)
+            {
+?>
+       <tr style="height:30px;">
+            <td style="width:230px;vertical-align:middle"> <?php echo $text[1][$i]['art_title']; ?></td>
+            <td style="width:230px;vertical-align:middle"> <?php echo $text[1][$i]['art_type']; ?></td>
+            <td style="width:230px;vertical-align:middle"> <?php echo  date("Y-m-d",$text[1][$i]['art_date']); ?></td>
+            <td>
+             <form id="art_form" method="POST" action="/myblog/index.php/artical/selupdate" ><button type="submit" class="change btn btn-primary" name="artid" value="<?php echo $text[1][$i]['art_id']; ?>" >修改</button></form>
+             <?php echo '<button type="submit" class="delete btn btn-primary" onclick="deletes('.$text[1][$i]['art_id'].')" >删除</button>'  ?>
+            </td>
+        </tr>
+      <?php } }?>
+    </table>
+
+         <div style="text-align: center;margin-right: 217px;"><p><?php
+         if(isset($showpage))
+         {echo $showpage; }
+?></p></div>
+    </div>
+    </div>
+</body>
+<script src="/myblog/View/js/artical.js"> </script>
+        <script>
+            changenavco();
+        </script>
+
+</html>

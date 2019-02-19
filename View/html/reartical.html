@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>文章管理</title>
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/chartist-custom.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/demo.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/manage.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/layer.css">
+    <script src="/myblog/View/js/jquery.min.js"></script>
+    <script src="/myblog/View/js/jquery-3.2.1.js"></script>
+    <script src="/myblog/View/js/ueditor.config.js"></script>
+    <script src="/myblog/View/js/ueditor.all.min.js"></script>
+    <script src="/myblog/View/js/lang/zh-cn/zh-cn.js"></script>
+    <script src="/myblog/View/js/artical.js"></script>
+</head>
+<body>
+<div id="wrapper" style="overflow: hidden;margin: auto">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="brand">
+            <a href="index.html"><img src="" alt="Klorofil Logo" class="img-responsive logo"></a>
+        </div>
+        <div class="container-fluid">
+            <div class="navbar-btn" style="margin-top: -10px">
+                <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+                <span style="margin-left: 145px;font-size: 41px;letter-spacing:100px;">后台管理</span>
+            </div>
+            <div></div>
+            <div class="navbar-btn navbar-btn-right">
+                <a class="btn btn-success update-pro" href="/myblog/index.php/Load/sugnOut" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>退出管理</span></a>
+            </div>
+            <div id="navbar-menu">
+                <ul class="nav navbar-nav navbar-right" style="margin-right:80px">
+                    <li>
+                        <a href="/myblog/index.php/Main/yaolipage" class="dropdown-toggle"><i class="lnr lnr-question-circle"></i> <span>首页</span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/myblog/index.php/Artical/selectart" class="dropdown-toggle"><i class="lnr lnr-question-circle"></i><span>美文欣赏</span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/myblog/index.php/Images/mypic" class="dropdown-toggle"><i class="lnr lnr-question-circle"></i><span>相册</span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/myblog/index.php/Speachs/speach" class="dropdown-toggle"><i class="lnr lnr-question-circle"></i><span>留言</span> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="sidebar-nav" class="sidebar" style="margin-top: 3%">
+        <div class="sidebar-scroll">
+            <nav>
+                <ul class="nav">
+                    <li id="color" style="line-height: 80px"><a href="/myblog/index.php/Artical/mainpage" class=""><i class="lnr lnr-home"></i> <span style="margin-left: 1%">文章管理</span></a></li>
+                    <li style="line-height: 80px">
+                        <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span style="margin-top: 1%">每日一言</span><i class="icon-submenu lnr lnr-chevron-left" style="margin-top: 30px;"></i></a>
+                        <div id="subPages" class="collapse ">
+                            <ul class="nav">
+                                <li><a href="/myblog/index.php/Dary/semydary?id=0" class="">我的名言</a></li>
+                                <li><a href="/myblog/index.php/Dary/semydary?id=1" class="">作家名言</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li   style="line-height: 80px"><a href="/myblog/index.php/Images/realimg" class=""></i><i style="margin: 0" class="lnr lnr-file-empty"></i><span style="margin-left: 7%">相册管理</span></a></li>
+                    <li style="line-height: 80px"><a href="/myblog/index.php/Speachs/respeach" class=""><i class="lnr lnr-cog"></i> <span style="margin-left: 2%">留言管理</span></a></li>
+                    <li style="line-height: 80px"><a href="/myblog/index.php/Main/information" class=""><i class="lnr lnr-alarm"></i> <span style="margin-left: 1%">信息管理</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div id="page-wrapper" class="reart" style="margin-top: 120px;margin-right: 146px;width: 1000px;float: right;">
+        <div id="page-inner" style="    margin-right: -32px;width: 979px;border: 2px solid rgb(0, 0, 0);height: auto;">
+            <div class="row">
+                <div class="col-md-12" style="    width: 326px;float: right;margin-right: 316px;margin-top: 20px;">
+                    <h2 style="font-size: 50px">坏小哥作品</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div style="margin-left: 32px" class="col-md-8">
+                    <div>
+                        <span style="width: 50px;height: 30px">文章类型</span>
+                    </div>
+                        <select class="select" name="artype" id="arttype">
+                        <?php
+                            if(isset($text)){
+                           for($i=0;$i<count($text);$i++){
+                           echo '<option value='.$text[$i]['ty_id'].'>'.$text[$i]['art_type'].'</option>';
+                            }
+                        }
+                        ?>
+                            <?php if(isset($datas)){
+                         echo '<option  value= '.$datas[0][4].'>'.$datas[0][3].'</option>';
+                            for($i=0;$i<count($datas[1]);$i++){
+                            echo '<option  value= '.$datas[1][$i]["ty_id"].'>'.$datas[1][$i]["art_type"].'</option>';
+                            }
+                            } ?>
+                    </select>
+                    <div class="modal fade" id="addmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+                        <div class="modal-dialog"style="width: 510px">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="emptys()">&times;</button>
+                                    <h4 class="modal-title" id="ModalLabel" style="text-align: center;">请输入你要添加的类型</h4>
+                                </div>
+                                <div class="modal-body" style="height: 200px">
+                                    <div style="margin-top: 40px">
+                                    <span>文章类型</span>
+                                    <input id="addsaytitle" maxlength="6px">
+                                    </div>
+                                    <div class="modal-footer" style="margin-top: 48px">
+                                        <button type="button" class="btn btn-default closes"  data-dismiss="modal" onclick="emptys()">关闭窗口</button>
+                                        <button type="button" class="btn btn-primary relpy"  onclick="addtype('<?php if(isset($datas)){echo $datas[(count($datas)-1)]; }?>')">添加类型</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-right: -267px;float: right;margin-top: 97px;">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#addmodal">添加文章类型</button>
+                        <button id="buttype" class=" btn btn-primary" onclick="deletetype('<?php if(isset($datas)){echo $datas[(count($datas)-1)]; }?>')">删除文章类型</button>
+                    </div>
+                    <div class="form-group">
+                        <label>文章标题:  </label>
+                        <input name="headline" class="form-control" type="text" id="arttitle"style="width: 225px" maxlength="8px">
+                    </div>
+                </div>
+                <div id="editor" type="text/plain" name="editors" style="height: 400px;margin-top: 190px;margin-left: 47px;width: 907px"></div>
+                <div id="deliver">
+                    <button class="handin btn btn-primary" id="authority" onclick="newart()">发表文章</button>
+                    <button class="rechange btn btn-primary" id="chan" onclick="change('<?php if(isset($datas)){echo $datas[0][0]; }?>')">修改文章</button>
+                </div>
+            </div>
+        </div>
+        <div style="color: #000;font-size: 20px;margin-top: 55px;margin-left: 285px">
+            <p>
+                <span>Design by：坏小哥</span>
+                <span>备案号：<strong>商丘123456789</strong></span>
+            </p>
+        </div>
+    </div>
+</div>
+<script>
+    var ue=UE.getEditor('editor');
+</script>
+<script type="text/javascript">
+    <?php if(isset($datas)){ ?>
+        $("#arttitle").val("<?php echo $datas[0][1];?>");
+        var sendbtn = document.getElementById("authority");
+        sendbtn.style.display = "none";
+        ue.ready(function () {
+            ue.setContent("<?php echo $datas[0][2]; ?>");
+        });
+    <?php } ?>
+    <?php if(isset($text)){ ?>
+        var sendbtn1 = document.getElementById("chan");
+        sendbtn1.style.display = "none";
+    <?php } ?>
+</script>
+<script type="text/javascript"charset="UTF-8" src="/myblog/View/js/layer.js"></script>
+<script src="/myblog/View/js/bootstrap.min.js"></script>
+<script src="/myblog/View/js/jquery.slimscroll.min.js"></script>
+<script src="/myblog/View/js/jquery.easypiechart.js"></script>
+<script src="/myblog/View/js/chartist.min.js"></script>
+<script src="/myblog/View/js/klorofil-common.js"></script>
+<script>changenavco()</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<head>
+    <meta charset="utf-8">
+    <title>梦幻空间@坏小哥</title>
+   <header>
+       <link rel="stylesheet" type="text/css" href="/myblog/View/css/recheader.css">
+       <link rel="stylesheet" type="text/css" href="/myblog/View/css/yaoli.css">
+       <script src="/myblog/View/js/jquery.min.js"></script>
+       <srcipt src="/myblog/View/js/jquery-3.1.1.js"></srcipt>
+       <script src="/myblog/View/js/artical.js"></script>
+
+   </header>
+<body>
+<div class="big">
+    <div class="header-wrap">
+        <div class="logo">
+            <img src="/myblog/View/images/psb2.jpg" alt="我的头像" style="width: 130px;height: 130px;">
+        </div>
+        <div class="header-text-box" style="height: 128px;">
+                      <p style="font-size: 20px"><?php
+                      echo  $text2[0]['dary_text'];
+                      ?>
+                      </p>
+       </div>
+        <div class="logo-pic">
+       <?php if(!isset($name)){ echo '<a href="/myblog/index.php/Artical/mainpage">'; }?><img src="/myblog/View/images/logo-pic-bg.jpg" alt="" style="width: 129px;height: 115px;"></a>
+        </div>
+    </div>
+
+    <nav id="nav" class="nav-wrap">
+        <ul class="clearfix">
+            <li id="mynav"><a href="/myblog/index.php/Main/yaolipage">首页</a></li>
+            <li><a href="/myblog/index.php/Artical/selectart">美文欣赏</a></li>
+            <li><a href="/myblog/index.php/Images/mypic">相册</a></li>
+            <li><a href="/myblog/index.php/Speachs/speach">留言板</a></li>
+        </ul>
+    </nav>
+            <?php
+            if(isset($name)){
+              echo '<span class="pname">用户名：'.$name[0].'</span>';
+            }
+            ?>
+<a class="apush" href="/myblog/index.php/Load/sugnOut">退出</a>
+<div id="banner" class="banner-wrap clearfix">
+    <div class="banner-left fl">
+        <div id="bannerContent" class="content">
+            <ul>
+                <li>
+                    <a href="javascript:;">
+                        <img src="/myblog/View/images/s-banner3.jpg" width="480" height="300" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="/myblog/View/images/s-banner1.jpg" width="480" height="300" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="/myblog/View/images/s-banner2.jpg" width="480" height="300" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="/myblog/View/images/s-banner4.jpg" width="480" height="300" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="/myblog/View/images/s-banner5.jpg" width="480" height="300" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="switch-btn-box">
+            <div class="hover-bg" id="a">
+            <ul id="switchBtn">
+                <li>
+                    <a href="javascript:;">
+                        <img src="/myblog/View/images/s-b3.jpg" width="100" height="50">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="/myblog/View/images/s-b1.jpg" width="100" height="50">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="/myblog/View/images/s-b2.jpg" width="100" height="50">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="/myblog/View/images/s-b4.jpg" width="100" height="50">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="/myblog/View/images/s-b5.jpg" width="100" height="50">
+                    </a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    <div class="banner-right fr">
+        <div class="banner-right-text">
+        <?php
+           echo  $text2[1]['dary_text'];
+            ?>
+        </div >
+    </div>
+</div>
+<div class="inform">
+    <div class="mation">
+    <header class="post-header">
+        <h1 class="post-header" itemprop="name headline">About Me</h1>
+    </header>
+
+      <h3 id="个人信息">
+          <a href="" class="headerlink" title="个人信息"></a>
+          "个人信息"
+      </h3>
+
+     <p>
+         <strong>姓名</strong>
+         ":坏小哥"
+     </p>
+    <p>
+        <strong>性别</strong>
+        ":女"
+    </p>
+    <p>
+        <strong>出生日期</strong>
+        ":1998年8月10日"
+    </p>
+    <p>
+        <strong>籍贯</strong>
+        ":<?php
+           echo  $text1[0];
+            ?>"
+    </p>
+    <p>
+        <strong>Email</strong>
+        ":<?php
+           echo  $text1[1];
+            ?>"
+    </p>
+    <p>
+        <strong>博客</strong>
+        "<?php
+           echo  $text1[2];
+            ?>"
+        <a href=""></a>
+    </p>
+    <p>
+        <strong>Github</strong>
+        "<?php
+           echo  $text1[3];
+            ?>"
+        <a href=""></a>
+    </p>
+    <h3 id="爱好">
+        <a href="">兴趣爱好</a>
+        <ul>
+        <li>
+            喜欢的食物:<?php
+           echo  $text1[4];
+            ?>
+            <a href=""></a>
+        </li>
+        <li>
+            喜欢的书籍:<?php
+           echo  $text1[5];
+            ?>
+        </li>
+        <li>
+            喜欢的运动:工作吖！
+        </li>
+        </ul>
+    </h3>
+    </div>
+</div>
+    <div style="height: 60px">
+    <footer class="footer-wrap" style="text-align: center;margin-top: 5%;color: yellow;font-size: 20px">
+    <p>
+        <span>Design by：坏小哥</span>
+        <span>备案号：<strong>商丘123456789</strong></span>
+    </p>
+</footer>
+    </div>
+</div>
+<script>mynav()</script>
+<script src="/myblog/View/js/result.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>名言管理</title>
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/chartist-custom.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/demo.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/manage.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/layer.css">
+    <script src="/myblog/View/js/artical.js"></script>
+</head>
+<body>
+<div id="wrapper" style="overflow: hidden;margin: auto">
+    <nav class="navbar navbar-default navbar-fixed-top" style="height: 86px">
+        <div class="brand">
+            <a href="index.html"><img src="" alt="Klorofil Logo" class="img-responsive logo"></a>
+        </div>
+        <div class="container-fluid" style="height: 86px">
+            <div class="navbar-btn" style="margin-top: -10px">
+                <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+                <span style="margin-left: 145px;font-size: 41px;letter-spacing:100px;">后台管理</span>
+            </div>
+            <div></div>
+            <div class="navbar-btn navbar-btn-right">
+                <a class="btn btn-success update-pro" href="/myblog/index.php/Load/sugnOut" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>退出管理</span></a>
+            </div>
+            <div id="navbar-menu">
+                <ul class="nav navbar-nav navbar-right" style="margin-right:80px">
+                    <li>
+                        <a href="/myblog/index.php/Main/yaolipage" class="dropdown-toggle"><i class="lnr lnr-question-circle"></i> <span>首页</span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/myblog/index.php/Artical/selectart" class="dropdown-toggle"><i class="lnr lnr-question-circle"></i><span>美文欣赏</span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/myblog/index.php/Images/realimg" class="dropdown-toggle"><i class="lnr lnr-question-circle"></i><span>相册</span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/myblog/index.php/Speachs/speach" class="dropdown-toggle"><i class="lnr lnr-question-circle"></i><span>留言</span> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="sidebar-nav" class="sidebar" style="margin-top: 3%">
+        <div class="sidebar-scroll">
+            <nav>
+                <ul class="nav">
+                    <li  style="line-height: 80px"><a href="/myblog/index.php/Artical/mainpage" class=""><i class="lnr lnr-home"></i> <span style="margin-left: 1%">文章管理</span></a></li>
+                    <li id="color" style="line-height: 80px">
+                        <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span style="margin-top: 1%">每日一言</span><i class="icon-submenu lnr lnr-chevron-left" style="margin-top: 30px;"></i></a>
+                        <div id="subPages" class="collapse ">
+                            <ul class="nav">
+                                <li><a id="me" href="/myblog/index.php/Dary/semydary?id=0" class="">我的名言</a></li>
+                                <li><a id="you" href="/myblog/index.php/Dary/semydary?id=1" class="">作家名言</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li   style="line-height: 80px"><a href="/myblog/index.php/Images/realimg" class=""></i><i style="margin: 0" class="lnr lnr-file-empty"></i><span style="margin-left: 7%">相册管理</span></a></li>
+                    <li style="line-height: 80px"><a href="/myblog/index.php/Speachs/respeach" class=""><i class="lnr lnr-cog"></i> <span style="margin-left: 2%">留言管理</span></a></li>
+                    <li style="line-height: 80px"><a href="/myblog/index.php/Main/information" class=""><i class="lnr lnr-alarm"></i> <span style="margin-left: 1%">信息管理</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <script>changenavco()</script>
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog"style="width: 510px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="empty()">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel" style="text-align: center;">请输入你要修改的内容</h4>
+                </div>
+                <div class="modal-body">
+                    <span>标题</span>
+                    <input id="saytitle" maxlength="6px">
+                    <p  style="margin-top: 20px">内容：</p>
+                    <textarea class="incont" style="display: block;width: 463px;display: block;height: 149px;" id="textid" maxlength="70px"></textarea>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default closes" data-dismiss="modal" onclick="empty()">关闭窗口</button>
+                        <button type="button" class="btn btn-primary relpy" onclick="updatesays(this)">修改</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog"style="width: 510px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="empty()">&times;</button>
+                    <h4 class="modal-title" id="ModalLabel" style="text-align: center;">请输入你要添加的内容</h4>
+                </div>
+                <div class="modal-body">
+                    <span>标题</span>
+                    <input id="addsaytitle" maxlength="6px">
+                    <p  style="margin-top: 20px">内容：</p>
+                    <textarea class="incont" style="display: block;width: 463px;display: block;height: 149px;" id="addtext" maxlength="70px"></textarea>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default closes"  data-dismiss="modal" onclick="empty()">关闭窗口</button>
+                        <button type="button" class="btn btn-primary relpy" rel="<?php echo $text1[0]['dary_ditg']; ?>" onclick="addsays(this)">添加名言</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="artical" >
+        <table class="table table-bordered" style="width:80%;color:#000;background-color:#fff;border=2;">
+            <caption class="caption" style="margin-left: 240px"><h1 style="margin-left: 30px;width: 251px;">**名言集锦**</h1>
+                <form class="navbar-form navbar-left" style="margin-left: 286px;margin-top: -30px;" method="GET" action="/myblog/index.php/Dary/vagueselect">
+                    <div class="input-group">
+                        <input type="text" name="reserch" class="form-control" placeholder="请输入搜索内容！">
+                        <span class="input-group-btn"><button name="id" value="<?php echo $text1[(count($text1)-1)]; ?>" type="submit" class="btn btn-primary">Go</button></span>
+                    </div>
+                </form>
+                <button  class=" btn btn-primary" data-toggle="modal" data-target="#addmodal" style="margin-top: -19px;">添加名言</button>
+            </caption>
+            <tr>
+                <th class="th" height="55px">题目</th>
+                <th class="th" height="55px">上传日期</th>
+                <th class="th" height="55px" width="200px">内容</th>
+                <th class="th" height="55px" width="100px">编辑</th>
+            </tr>
+            <?php
+         if($text1[0]==0){
+         echo '<script>alert("无数据")</script>';
+        }
+        else{
+            for($i=0;$i<(count($text1)-1);$i++)
+            {
+                    ?>
+            <tr style="height=30px;">
+                <td style="vertical-align:middle;width:76px;"> <?php echo $text1[$i]['dary_title']; ?></td>
+                <td style="vertical-align:middle;width:163px;"> <?php echo $text1[$i]['dary_date']; ?></td>
+                <?php
+                 if($text1[$i]['dary_state']==0){
+                echo '<td style="width:230px;vertical-align:middle;width:auto;color: #dd0000">'.$text1[$i]['dary_text'].'</td>';
+                 }else{
+                     echo '<td style="width:230px;vertical-align:middle;width:auto;">'.$text1[$i]['dary_text'].'</td>';
+                 }
+            ?>
+                 <td style="width:200px;vertical-align:middle">
+                <button  style="margin-right: 140px;margin-top:21px;width: 70px;" class="change btn btn-primary" onclick="upsay(<?php echo $text1[$i]['dary_id']; ?>)">修改</button>
+                <button  class="delete btn btn-primary" style="margin-left: 98px;width: 70px;" onclick="deletesay(<?php echo $text1[$i]['dary_id']; ?>,<?php echo $text1[$i]['dary_ditg']; ?>)" >删除</button>
+                <button  class="delete btn btn-primary" style="margin-left: 6px;width: 70px;" onclick="chansay(<?php echo $text1[$i]['dary_id']; ?>,<?php echo $text1[$i]['dary_ditg']; ?>)" >替换</button>
+            </td>
+            </tr>
+            <?php } }?>
+        </table>
+
+        <div style="text-align: center;margin-right: 217px;"><p><?php
+        if(isset($showpage))
+        {echo $showpage; }
+            ?></p></div>
+        <div style="margin-right: 20%;color: #000;font-size: 20px;margin-top: 5%;">
+            <p style="margin-left: -30px">
+            <span>Design by：坏小哥</span>
+        <span>备案号：<strong>商丘123456789</strong></span>
+        </p>
+        </div>
+       </div>
+     </div>
+        <script src="/myblog/View/js/jquery.min.js"></script>
+            <script type="text/javascript"charset="UTF-8" src="/myblog/View/js/layer.js"></script>
+            <script src="/myblog/View/js/bootstrap.min.js"></script>
+            <script src="/myblog/View/js/jquery.slimscroll.min.js"></script>
+            <script src="/myblog/View/js/jquery.easypiechart.js"></script>
+            <script src="/myblog/View/js/chartist.min.js"></script>
+            <script src="/myblog/View/js/klorofil-common.js"></script>
+            <?php
+              echo '<script>changecolor('.$text1[(count($text1)-1)].')</script>';
+           ?>
+      </body>
+</html>

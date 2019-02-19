@@ -1,0 +1,91 @@
+.main-content .main-content-box {
+    width: 1000px;
+    margin: 0 auto;
+    float: left;
+    margin-left: 100px;
+}
+.arraw-box {
+    background: #f8f8f8;
+    box-shadow: 0px 1px 0px rgba(255,255,255,.1), inset 0px 1px 1px rgba(214, 214, 214, 0.7);
+    width: 730px;
+    border-radius: 6px;
+    position: relative;
+    padding: 20px 0;
+    margin: 20px 0;
+}
+.arraw-box:hover {
+    background: #9acfea;
+    color: #333;
+    text-shadow: #f7f7f7 1px 1px 1px;
+}
+.arraw-box:hover:before {
+    border-color: transparent transparent transparent #CECCCD;
+}
+.arraw-box:hover:after {
+    border: #fff 2px solid; background: #5EA51B;
+}
+.arraw-box:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0px 0 20px 22px;
+    border-color: transparent transparent transparent #fff;
+    position: absolute;
+    left: 730px;
+    top: 23px;
+}
+.arraw-box:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    left: 758px;
+    top: 16px;
+    background: #CCCCCE;
+    border: 2px solid #fff;
+    transition: all 0.5s;
+}
+.sy {
+    overflow: hidden;
+}
+.arraw-box p {
+    float: right;
+    line-height: 24px;
+    padding: 0 30px 0px;
+}
+.dateview {
+position: absolute;
+left: 788px;
+top: 20px;
+width: 125px;
+line-height: 30px;
+background: #5EA51B;
+border-radius: 0px 40px;
+text-align: center;
+color: #fff;
+}
+
+.main-content-box ul {
+transition: all 1s;
+}
+
+.bounceIn {
+animation-name: bounceIn;
+}
+.animated {
+animation-duration: 1s;
+animation-fill-mode: both;
+}
+@keyframes bounceIn {
+0% {transform:scale3d(0.1,0.1,0.1);}
+50% {transform: scale3d(1.1,1.1,1.1);}
+100% {transform:scale3d(1,1,1);}
+}
+.arttitle{
+margin-top: -4px;
+margin-left: 20px;
+cursor: pointer;
+display: inline-block;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息管理</title>
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/chartist-custom.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/demo.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/manage.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/layer.css">
+    <link rel="stylesheet" type="text/css" href="/myblog/View/css/yaoli.css">、
+</head>
+<body style="background-color: #0A0A0A">
+<div style="margin:0 auto">
+<div id="wrapper" style="overflow: hidden;margin: auto;">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="brand">
+            <a href="index.html"><img src="" alt="Klorofil Logo" class="img-responsive logo"></a>
+        </div>
+        <div class="container-fluid">
+            <div class="navbar-btn" style="margin-top: -10px">
+                <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+                <span style="margin-left: 145px;font-size: 41px;letter-spacing:100px;">后台管理</span>
+            </div>
+            <div></div>
+            <div class="navbar-btn navbar-btn-right">
+                <a class="btn btn-success update-pro" href="/myblog/index.php/Load/sugnOut" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>退出管理</span></a>
+            </div>
+            <div id="navbar-menu">
+                <ul class="nav navbar-nav navbar-right" style="margin-right:80px">
+                    <li>
+                        <a href="/myblog/index.php/Main/yaolipage" class="dropdown-toggle"><i class="lnr lnr-question-circle"></i> <span>首页</span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/myblog/index.php/Artical/selectart" class="dropdown-toggle"><i class="lnr lnr-question-circle"></i><span>美文欣赏</span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/myblog/index.php/Images/mypic" class="dropdown-toggle"><i class="lnr lnr-question-circle"></i><span>相册</span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/myblog/index.php/Speachs/speach" class="dropdown-toggle"><i class="lnr lnr-question-circle"></i><span>留言</span> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="sidebar-nav" class="sidebar" style="margin-top: 3%">
+        <div class="sidebar-scroll">
+            <nav>
+                <ul class="nav">
+                    <li  style="line-height: 80px"><a href="/myblog/index.php/Artical/mainpage" class=""><i class="lnr lnr-home"></i> <span style="margin-left: 1%">文章管理</span></a></li>
+                    <li style="line-height: 80px">
+                        <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span style="margin-top: 1%">每日一言</span><i class="icon-submenu lnr lnr-chevron-left" style="margin-top: 30px;"></i></a>
+                        <div id="subPages" class="collapse ">
+                            <ul class="nav">
+                                <li><a href="/myblog/index.php/Dary/semydary?id=0" class="">我的名言</a></li>
+                                <li><a href="/myblog/index.php/Dary/semydary?id=1" class="">作家名言</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li   style="line-height: 80px"><a href="/myblog/index.php/Images/realimg" class=""></i><i style="margin: 0" class="lnr lnr-file-empty"></i><span style="margin-left: 7%">相册管理</span></a></li>
+                    <li style="line-height: 80px"><a href="/myblog/index.php/Speachs/respeach" class=""><i class="lnr lnr-cog"></i> <span style="margin-left: 2%">留言管理</span></a></li>
+                    <li  id="color" style="line-height: 80px"><a href="/myblog/index.php/Main/information" class=""><i class="lnr lnr-alarm"></i> <span style="margin-left: 1%">信息管理</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="preserve" style="margin-top: 6%;margin-right: 3%">
+        <div class="wrap-box">
+            <div class="cube">
+                <div class="out-front"></div>
+                <div class="out-back"></div>
+                <div class="out-left"></div>
+                <div class="out-right"></div>
+                <div class="out-top"></div>
+                <div class="out-bottom"></div>
+                <span class="in-front"></span>
+                <span class="in-back"></span>
+                <span class="in-left"></span>
+                <span class="in-right"></span>
+                <span class="in-top"></span>
+                <span class="in-bottom"></span>
+            </div>
+        </div>
+    </div>
+    <div class="information"style="width:571px;">
+            <div class="form-group1" style="margin-left: 8px;height: 57px;">
+                <label for="inputhome" class="col-sm-2 control-label" style="width: 47px;padding: 0;color: #fff;margin-left: 45px;"> 籍贯：</label>
+                <div class="col-sm-10" style="margin-left: 0px;padding: 0;float: right;margin-top: 0px;">
+                    <input  class="form-control" style="width:300px;" name="home" maxlength="30px" id="inputhome"value="<?php echo $information1[0]; ?>">
+                </div>
+            </div>
+            <div class="form-group2" style="margin-top: 24px;height: 57px; margin-left: 7px;">
+                <label for="inputemail" class="col-sm-2 control-label" style="padding: 0;width: 58px;color: #fff;margin-left: 33px;"> Email：</label>
+                <div class="col-sm-10" style="padding: 0;float: right;margin-top: 0px;">
+                    <input  type="email"name="adres" style="width:300px" class="form-control"maxlength="20px" id="inputemail" value="<?php  echo $information1[1]; ?>">
+                </div>
+            </div>
+            <div class="form-group3"style="margin-top: 24px;height: 57px; margin-left: 7px;">
+                <label for="blog" class="col-sm-2 control-label" style="width: 51px;color: #fff;padding: 0;margin-left: 42px;"> 博客：</label>
+                <div class="col-sm-10" style="float: right;margin-top: 0px;padding:0;">
+                    <input class="form-control"name="blog" style="width:300px" maxlength="30px" id="blog" value="<?php  echo $information1[2]; ?>">
+                </div>
+            </div>
+            <div class="form-group4" style="margin-top: 24px;height: 57px; margin-left: 7px;">
+                <label for="git" class="col-sm-2 control-label" style="margin-left: 22px;padding: 0;width: 71px;color: #fff;">  Github：</label>
+                <div class="col-sm-10" style="padding: 0;float: right;">
+                    <input  class="form-control" name="git" style="width:300px"maxlength="20px"id="git" value="<?php echo $information1[3]; ?>">
+                </div>
+            </div>
+            <div class="form-group5" style="margin-top: 24px;height: 57px; margin-left: 7px;">
+                <label for="food" class="col-sm-2 control-label" style="margin-top: 5px;padding: 0;color: #fff;float: left;width: 95px;">   喜欢的食物：</label>
+                <div class="col-sm-10" style="padding: 0;margin-left: 94px;float: left;margin-top: -30px;">
+                    <input  class="form-control" style="width:300px;"maxlength="20px" name="food" id="food" value="<?php  echo $information1[4]; ?>" >
+                </div>
+            </div>
+            <div class="form-group6" style="margin-top: 24px;height: 57px; margin-left: 7px;">
+                <label for="book" class="col-sm-2 control-label" style="margin-top: 5px;padding: 0;color: #fff;float: left;width: 95px;">  喜欢的书籍：</label>
+                <div class="col-sm-10" style="padding: 0;margin-left: 94px;float: left;margin-top: -30px;">
+                    <input  class="form-control" name="book" style="width:300px"maxlength="30px" id="book" value="<?php  echo $information1[5];  ?>">
+                </div>
+            </div>
+            <div class="form-group7" style="margin-top: 24px;height: 57px; margin-left: 7px;">
+                <label for="sport" class="col-sm-2 control-label" style="margin-top: 5px;padding: 0;color: #fff;float: left;width: 95px;"> 喜欢的运动：</label>
+                <div class="col-sm-10" style="padding: 0;margin-left: 94px;float: left;margin-top: -30px;">
+                    <input  class="form-control" name="sport" style="width:300px" maxlength="20px" id="sport" value="<?php  echo $information1[6];  ?>" >
+                </div>
+            </div>
+            <button class="mybutn btn btn-primary" onclick="judge()">
+               修改信息
+            </button>
+    </div>
+    <div class="footer-wrap" style="font-size: 20px;margin-right: 32%;float: right;margin-top: 3%;">
+        <p>
+            <span>Design by：坏小哥</span>
+            <span>备案号：<strong>商丘123456789</strong></span>
+        </p>
+    </div>
+</div>
+</div>
+<script src="/myblog/View/js/jquery-3.2.1.js"></script>
+<script src="/myblog/View/js/jquery.min.js"></script>
+<script type="text/javascript"charset="UTF-8" src="/myblog/View/js/layer.js"></script>
+<script src="/myblog/View/js/speach.js"></script>
+<script src="/myblog/View/js/yaoli.js"></script>
+<script src="/myblog/View/js/bootstrap.min.js"></script>
+<script src="/myblog/View/js/jquery.slimscroll.min.js"></script>
+<script src="/myblog/View/js/jquery.easypiechart.js"></script>
+<script src="/myblog/View/js/chartist.min.js"></script>
+<script src="/myblog/View/js/klorofil-common.js"></script>
+<script>
+    $.wrapBox();
+</script>
+<script>changenavco()</script>
+</body>
+</html>

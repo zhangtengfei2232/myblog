@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<meta charset="utf-8">
+<title>梦幻空间@相册</title>
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/recheader.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/yaoli.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/manage.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/images.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/layer.css">
+<link rel="stylesheet" type="text/css" href="/myblog/View/css/styleimg.css">
+<script src="/myblog/View/js/jquery-3.2.1.js"></script>
+<script src="/myblog/View/js/yaoli.js"></script>
+<script type="text/javascript"charset="UTF-8" src="/myblog/View/js/artical.js"></script>
+</head>
+<script> var judgepic=true;</script>
+<body class="imgpage">
+<div class="big">
+    <header>
+        <div class="header-wrap">
+            <div class="logo">
+                <img src="/myblog/View/images/psb2.jpg" alt="我的头像" style="width: 130px;height: 130px;">
+            </div>
+            <div class="header-text-box">
+                <p style="font-size: 20px;color:#000;">
+                    <?php if(isset($text)){
+                      echo  $text[0]['dary_text'];
+                     } ?>
+                </p>
+            </div>
+            <div class="logo-pic">
+                <?php if(!isset($name)){ echo '<a href="/myblog/index.php/artical/mainpage">'; }?><img src="/myblog/View/images/logo-pic-bg.jpg" alt="" style="width: 129px;height: 115px;"></a>
+            </div>
+        </div>
+        <nav id="nav" class="nav-wrap">
+            <ul class="clearfix">
+                <li><a href="/myblog/index.php/Main/yaolipage">首页</a></li>
+                <li><a href="/myblog/index.php/Artical/selectart">美文欣赏</a></li>
+                <li id="mynav"><a href="/myblog/index.php/Images/mypic">相册</a></li>
+                <li><a href="/myblog/index.php/Speachs/speach">留言板</a></li>
+            </ul>
+        </nav>
+    </header>
+    <?php
+            if(isset($name)){
+              echo '<span class="pname" style="font-size=16px">用户名：'.$name[0].'</span>';
+             }
+    ?>
+    <a class="apush" href="/myblog/index.php/load/sugnOut">退出</a>
+    <div class="preserve" style="margin-top: -23px;margin: 0;">
+        <div class="wrap-box">
+            <div class="cube">
+                <div class="out-front"></div>
+                <div class="out-back"></div>
+                <div class="out-left"></div>
+                <div class="out-right"></div>
+                <div class="out-top"></div>
+                <div class="out-bottom"></div>
+                <span class="in-front"></span>
+                <span class="in-back"></span>
+                <span class="in-left"></span>
+                <span class="in-right"></span>
+                <span class="in-top"></span>
+                <span class="in-bottom"></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        $.wrapBox();
+    </script>
+    <div class="xm" id="xm">
+        <ul>
+            <li name="pic" class="sheel1"><img src="<?php echo $images[(count($images)-1)][0][0]; ?>" ></li>
+            <li name="pic" class="sheel2"><img src="<?php echo $images[(count($images)-1)][1][0]; ?>"></li>
+            <li name="pic" class="sheel3"><img src="<?php echo $images[(count($images)-1)][2][0]; ?>"></li>
+            <li name="pic" class="sheel4"><img src="<?php echo $images[(count($images)-1)][3][0]; ?>"></li>
+            <li name="pic" class="sheel5"><img src="<?php echo $images[(count($images)-1)][4][0]; ?>"></li>
+        </ul>
+        <button  class="mm-next" id="mm-next">
+            <img src="/myblog/View/images/click.png">
+        </button>
+        <button  class="mm-last" id="mm-last">
+            <img src="/myblog/View/images/click.png">
+        </button>
+    </div>
+    <div class="bigimage" style="margin-left: 7%;width: auto;">
+        <ul class="imageul">
+    <?php
+    for($i=0;$i<(count($images)-1);$i++){
+
+       echo '<li style="margin-top:3%">
+            <div style="cursor: pointer;">';
+                if(count($images[$i])<5&&$images[$i][2]==null){
+                echo '<div style="width:252px;height: 200px;background-color: #dd0000" rel="'.$images[$i][0].'" class="imagediv" onclick="showimg(this)">
+                    <img src="/myblog/View/images/imemty.png" style="width: 90%;height: 90%;margin-left: 5%;margin-top: 4%">
+                </div>';
+                }
+                if($images[$i][2]!=null&&count($images[$i])>4){
+                 echo '
+                <div style="width:251px;height: 200px;background-color: yellow" rel="'.$images[$i][0].'" class="imagediv" onclick="showimg(this)">
+                    <img src="/myblog/View/images/imaques.jpg" style="width: 90%;height: 90%;margin-left: 5%;margin-top: 4%">
+                </div>';
+                }
+                if(count($images[$i])>4&&$images[$i][2]==null){
+                echo '<div style="width:251px;height: 200px;background-color: #fff" rel="'.$images[$i][0].'" class="imagediv" onclick="showimg(this)">
+                    <img src='.$images[$i][(count($images[$i])-1)].' style="width: 90%;height: 90%;margin-left: 5%;margin-top: 4%">
+                </div>';
+                }
+                if($images[$i][2]!=null&&count($images[$i])<5){
+                echo '
+                <div style="width:251px;height: 200px;background-color: yellow" rel="'.$images[$i][0].'" class="imagediv" onclick="showimg(this)">
+                    <img src="/myblog/View/images/imaques.jpg" style="width: 90%;height: 90%;margin-left: 5%;margin-top: 4%">
+                </div>';
+                }
+                echo '<div style="color: #fff;">
+                <div style="margin-top: 9%;width: auto;font-size: 22px;margin-left: 15%;">
+                    <span>
+                        昵称：'.$images[$i][1].'
+                    </span>
+                </div>
+                <div style="font-size:15px;margin-left: 15%;">
+                    <span>
+                        创建时间：'.$images[$i][3].'
+                    </span>
+                </div>
+                </div>';
+           echo '</div>
+            </li>';
+    }
+            ?>
+        </ul>
+</div>
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog"style="width: 510px">
+            <div class="modal-content" style="width: 340px">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="emptyques()">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel" style="text-align: center;">请回答主人问题</h4>
+                </div>
+                <div class="modal-body" >
+                    <span>问题</span>
+                    <input id="ques" maxlength="6px"value="readonly" readonly>
+                    <p  style="margin-top: 20px">答案：</p>
+                    <textarea class="incont" style="width: 305px;display: block;height: 43px;" id="amswer" maxlength="70px"></textarea>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default closes" data-dismiss="modal" onclick="emptyques()">关闭窗口</button>
+                        <button type="button" class="btn btn-primary relpy" onclick="showimgques()">欣赏相片</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-wrap">
+        <p>
+            <span>Design by：坏小哥</span>
+            <span>备案号：<strong>商丘123456789</strong></span>
+        </p>
+    </footer>
+</div>
+<script type="text/javascript"charset="UTF-8" src="/myblog/View/js/layer.js"></script>
+<script src="/myblog/View/js/bootstrap.min.js"></script>
+<script src="/myblog/View/js/jquery.slimscroll.min.js"></script>
+<script src="/myblog/View/js/jquery.easypiechart.js"></script>
+<script src="/myblog/View/js/chartist.min.js"></script>
+<script src="/myblog/View/js/klorofil-common.js"></script>
+<script src="/myblog/View/js/images.js"></script>
+<script>mynav()</script>
+</body>
+</html>

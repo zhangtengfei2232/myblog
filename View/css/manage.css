@@ -1,0 +1,174 @@
+.artical{
+    margin-right: -81px;
+    width: 1154px;
+    text-align: center;
+    float: right;
+    margin-top: 100px;
+    margin-left: 30px;
+}
+#art_form{
+    margin-right: 31px;
+    width: 80px;
+}
+.delete{
+    margin-left: 56px;
+    margin-top: -58px;
+}
+.buttons{
+    margin-top: 20px;
+}
+.th{
+    text-align: center;
+}
+.select{
+    margin-top: 16px;
+}
+.form-group{
+    margin-top: 30px;
+}
+#deliver{
+    margin-bottom: 2%;
+    margin-top:3%;
+    margin-left:85%;
+}
+.handin{
+    display: block;
+}
+.rechange{
+    display: block;
+}
+#buttype{
+    margin-left: 64px;
+}
+.deletes{
+    margin-left: 36%;
+    margin-top: -28px;
+}
+/*.navbar-header {*/
+    /*background: #A70303;*/
+/*}*/
+/*.navbar-cls-top .navbar-brand {*/
+    /*background: #C90000;*/
+    /*width: 260px;*/
+    /*text-align: center;*/
+    /*height: 60px;*/
+    /*font-size: 30px;*/
+    /*font-weight: 700;*/
+    /*float: left;*/
+/*}*/
+/*.navbar-side {*/
+
+    /*float: left;*/
+    /*left: 271px;*/
+    /*z-index: 1;*/
+    /*position: absolute;*/
+/*}*/
+/*.navbar-default {*/
+
+    /*border: 0px solid black;*/
+/*}*/
+/*.sidebar-collapse{*/
+    /*margin-top: -9px;*/
+    /*margin-left: 3px;*/
+/*}*/
+
+/*.sidebar-collapse, .sidebar-collapse .nav {*/
+    /*margin-left: -2px;*/
+    /*margin-top: -52px;*/
+    /*background: none;*/
+/*}*/
+/*.sidebar-collapse > .nav > li {*/
+    /*margin-top: 52px;*/
+    /*background-color: #0A0A0A;*/
+/*}*/
+/*.text-center {*/
+    /*text-align: center;*/
+/*}*/
+/*.user-image {*/
+    /*margin: 25px auto;*/
+    /*border-radius: 10px;*/
+    /*max-height: 170px;*/
+    /*max-width: 170px;*/
+/*}*/
+/*.sidebar-collapse > .nav > li > a {*/
+    /*float: left;*/
+    /*padding: 15px 10px;*/
+/*}*/
+/*.sidebar-collapse .nav > li > a {*/
+    /*color: #fff;*/
+    /*background: #202020;*/
+    /*text-shadow: none;*/
+/*}*/
+/*.active-menu {*/
+    /*background-color: #C90000!important;*/
+/*}*/
+/*.nav > li > a > i {*/
+    /*margin-right: 10px;*/
+/*}*/
+/*.fa-3x {*/
+    /*font-size: 3em;*/
+/*}*/
+/*.fa {*/
+    /*display: inline-block;*/
+    /*font: normal normal normal 14px/1 FontAwesome;*/
+    /*font-size: inherit;*/
+    /*text-rendering: auto;*/
+    /*-webkit-font-smoothing: antialiased;*/
+/*}*/
+/*.sidebar-collapse .nav > li > a:hover, .sidebar-collapse .nav > li > a:focus {*/
+    /*background: #761c19;*/
+    /*outline: 0;*/
+/*}*/
+/*.text{*/
+    /*background-color: #fff;*/
+    /*cursor: pointer;*/
+    /*border-radius: 6px;*/
+    /*width: 14%;*/
+    /*height: 46px;*/
+    /*line-height: 46px;*/
+    /*float: right;*/
+    /*margin-top: 5px;*/
+    /*margin-right: 230px;*/
+/*}*/
+/*.serch{*/
+    /*float: right;*/
+    /*margin-right: -17%;*/
+    /*margin-top: 6px;*/
+    /*width: 46px;*/
+    /*height: 45px;*/
+/*}*/
+/*.artical{*/
+    /*margin-right: -454px;*/
+    /*float: right;*/
+    /*width: 66%;*/
+    /*margin-top: 28px;*/
+
+/*}*/
+/*.caption->h1{*/
+    /*float: left;*/
+    /*margin-left: 249px;*/
+/*}*/
+/*.big{*/
+    /*margin: 0 auto;*/
+    /*overflow: hidden;*/
+    /*width: 1514px;*/
+/*}*/
+/*.delete{*/
+    /*float: right;*/
+    /*margin-right: 53%;*/
+    /*margin-top: -45px;*/
+    /*width: 44px;*/
+    /*height: 45px;*/
+/*}*/
+/*.change{*/
+    /*float: right;*/
+    /*margin-right: 3%;*/
+    /*margin-top: 0px;*/
+    /*width: 46px;*/
+    /*height: 45px;*/
+/*}*/
+/*.add{*/
+/*float: right;*/
+/*margin-top: -22px;*/
+
+/*}*/
